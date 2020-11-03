@@ -1,0 +1,1 @@
+# simple-s3-gradle-plugin
