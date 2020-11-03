@@ -1,0 +1,53 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.10.1'
+    id 'idea'
+    id 'groovy'
+}
+
+wrapper {
+    gradleVersion = '6.2.2'
+}
+
+group = 'com.vduttadev.core'
+version = '1.0.0'
+
+jar {
+    manifest {
+        attributes([
+                'Manifest-Version': '1.0',
+                'Build-Tag'       : "$buildTag"
+        ])
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    amazonAWSVersion = '1.11.820'
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    api group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: amazonAWSVersion
+}
+
+gradlePlugin {
+    plugins {
+        s3Plugin {
+            id = 'com.bind.core.gradle.s3'
+            displayName = 'Gradle S3 Plugin'
+            description = 'Simple S3 download plugin'
+            implementationClass = 'com.vduttadev.core.gradle.S3Plugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/vduttadev/gradle-s3-plugin/README.md'
+    vcsUrl = 'https://github.com/vduttadev/gradle-s3-plugin'
+    tags = ['aws', 's3']
+}
