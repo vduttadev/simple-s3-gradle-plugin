@@ -24,9 +24,8 @@ class S3Extension {
 
     String region
     String bucket
-    String enabled;
-    String accessKey;
-    String accessSecret;
+    String accessKey
+    String accessSecret
     String keyPrefix
     String destDir
 }
@@ -34,11 +33,15 @@ class S3Extension {
 
 abstract class S3Task extends DefaultTask {
 
+    @Input
+    String bucket
+
     @Internal
-    AmazonS3 getS3Client(String accessKey, String accessSecret, String region) {
-            AWSCredentials credentials = new BasicAWSCredentials(accessKey, accessSecret)
+    AmazonS3 getS3Client() {
+            AWSCredentials credentials = new BasicAWSCredentials(project.s3.accessKey, project.s3.accessSecret)
             AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
+            String region = project.s3.region
             if (region) {
                 builder.withRegion(region)
             }
@@ -71,7 +74,7 @@ class S3Download extends S3Task {
         if (!bucket) {
             throw new GradleException('Invalid parameters: [bucket] was not provided and/or a default was not set')
         }
-        final AmazonS3 s3Client = getS3Client(${accessKey}, ${accessSecret}, ${region} )
+        final AmazonS3 s3Client = getS3Client()
 
         // directory download
         if (keyPrefix && destDir) {
