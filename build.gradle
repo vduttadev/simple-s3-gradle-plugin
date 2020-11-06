@@ -1,8 +1,8 @@
 plugins {
     id 'java-gradle-plugin'
-    id 'com.gradle.plugin-publish' version '0.10.1'
-    id 'idea'
+    id 'com.gradle.plugin-publish' version '0.12.0'
     id 'groovy'
+    id 'java-library'
 }
 
 wrapper {
