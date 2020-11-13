@@ -9,7 +9,7 @@ wrapper {
     gradleVersion = '6.2.2'
 }
 
-group = 'com.vduttadev.core'
+group = 'com.vdnsmd.core'
 version = '1.0.0'
 
 jar {
@@ -38,10 +38,10 @@ dependencies {
 gradlePlugin {
     plugins {
         s3Plugin {
-            id = 'com.bind.core.gradle.s3'
+            id = 'com.vdnsmd.core.gradle.s3'
             displayName = 'Gradle S3 Plugin'
             description = 'Simple S3 download plugin'
-            implementationClass = 'com.vduttadev.core.gradle.S3Plugin'
+            implementationClass = 'com.vdnsmd.core.gradle.S3Plugin'
         }
     }
 }

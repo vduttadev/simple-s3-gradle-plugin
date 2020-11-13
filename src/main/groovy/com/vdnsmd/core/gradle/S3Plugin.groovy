@@ -1,4 +1,4 @@
-package com.vduttadev.core.gradle
+package com.vdnsmd.core.gradle
 
 import com.amazonaws.event.ProgressEvent
 import com.amazonaws.event.ProgressListener
