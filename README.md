@@ -48,27 +48,6 @@ s3 {
 The following Gradle tasks are provided.
 
 
-### S3Upload
-
-Uploads one or more files to S3. This task has two modes of operation: single file upload and directory upload (including recursive upload of all child subdirectories). Properties that apply to both modes:
-
-  + `bucket` - S3 bucket to use *(optional, defaults to the project `s3` configured bucket)*
-
-For a single file upload:
-
-  + `key` - key of S3 object to create
-  + `file` - path of file to be uploaded
-  + `overwrite` - *(optional, default is `false`)*, if `true` the S3 object is created or overwritten if it already exists.
-
-By default `S3Upload` does not overwrite the S3 object if it already exists. Set `overwrite` to `true` to upload the file even if it exists.
-
-For a directory upload:
-
-  + `keyPrefix` - root S3 prefix under which to create the uploaded contents
-  + `sourceDir` - local directory containing the contents to be uploaded
-
-A directory upload will always overwrite existing content if it already exists under the specified S3 prefix.
-
 ### S3Download
 
 Downloads one or more S3 objects. This task has two modes of operation: single file
