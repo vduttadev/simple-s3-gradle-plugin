@@ -10,13 +10,11 @@ Add the following to your build.gradle file:
 
 ```groovy
 plugins {
-  id 'com.vduttadev.core.gradle.s3' version '1.0.0'
+  id 'com.vdnsmd.core.gradle.s3' version '1.0.0'
 }
 ```
 
 ## Versioning
-
-This project uses [semantic versioning](http://semver.org)
 
 See [gradle plugin page](https://plugins.gradle.org/plugin/com.mgd.core.gradle.s3) for other versions.
 
@@ -24,7 +22,7 @@ See [gradle plugin page](https://plugins.gradle.org/plugin/com.mgd.core.gradle.s
 
 ## Authentication
 
-The S3 plugin accepts the aws credentails. Additionally you can specify a credentials by setting the project `s3.accessKey, s3.accessSecret, s3.region` property:
+The S3 plugin accepts the aws credentials. Additionally you can specify a credentials by setting the project `s3.accessKey, s3.accessSecret, s3.region` property:
 
 ```groovy
 s3 {
